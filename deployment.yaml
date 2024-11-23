@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: des-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: des-app
+  template:
+    metadata:
+      labels:
+        app: des-app
+    spec:
+      containers:
+        - name: des-container
+          image: gcr.io/intense-vault-442413-d0/des:v1
+          ports:
+            - containerPort: 8080
